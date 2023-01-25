@@ -1,7 +1,7 @@
 Formulario creacion de alumnos
 MATUSITA 
-<form action="{{ url('/alumno')}}" method="post"enctype="multipart/form-data">
-
+<form action="{{ url('/alumno')}}" method="post" enctype="multipart/form-data">
+@csrf
 <label for="Nombre"> Nombre </label>
 <input type="text" name="Nombre" id="Nombre">
 <br>
@@ -26,7 +26,7 @@ MATUSITA
 <input type="file" name="Foto" id="Foto">
 <br>
 
-<input type="submit" name="Enviar" id="Enviar">
+<input type="submit" value="Guardar Datos">
 <br>
 
 </form>

@@ -14,7 +14,7 @@ use App\Http\Controllers\AlumnoController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -22,6 +22,6 @@ Route::get('/alumno', function () {
     return view('alumno.index');
 });
 
-Route::get('alumno/create',[AlumnoController::class,'create']);
+Route::get('alumno/create',[AlumnoController::class,'create']);*/
 
 Route::resource('alumno',AlumnoController::class);

@@ -14,8 +14,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
-        return view('alumno.index');
+        //*Consultar datos en DB variable"alumnos" usado index en el @foreach"
+        $datos['gatitos']=Alumno::paginate(20);
+        return view('alumno.index',$datos );
     }
 
     /**
@@ -38,7 +39,19 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*Muestra información impreso en formato Json del formulario create
+        Mostrar toda la inf escepto el token, luego incertar a la base de datos
+        $datosAlumno = request()->all();
+        */
+        $datosAlumno = request()->except('_token');
+//*Insrtamos fotografía a la base de datos
+        if($request->hasfile('Foto')){
+            $datosAlumno['Foto']=$request->file('Foto')->store('uploads','public');
+        }
+
+        Alumno::insert($datosAlumno);
+
+        return response()->json($datosAlumno);
     }
 
     /**
@@ -81,8 +94,11 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy($id)
     {
         //
+        Alumno::destroy($id);
+        return redirect('alumno');
+
     }
 }
