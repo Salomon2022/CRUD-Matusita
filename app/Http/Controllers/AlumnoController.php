@@ -74,6 +74,7 @@ class AlumnoController extends Controller
     public function edit(Alumno $alumno)
     {
         //
+        return view('alumno.edit');
     }
 
     /**
@@ -96,7 +97,7 @@ class AlumnoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //método usado para borrar registros almacenado en base datos
         Alumno::destroy($id);
         return redirect('alumno');
 

@@ -1,4 +1,4 @@
-Mostrar lista de alumnos :) Salomon
+Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
 <table class="table table-light">
 
     <thead class="thead-light">
@@ -24,7 +24,11 @@ Mostrar lista de alumnos :) Salomon
             <td>{{ $alumno->ApellidoMaterno }}</td>
             <td>{{ $alumno->GradoSeccion }}</td>
             <td>{{ $alumno->Correo }}</td>
-            <td>Editar | Borrar
+            <td>
+                
+                <a href="{{url('/alumno/'.$alumno->id.'/edit') }}">
+                    EDITAR
+                </a>
 
                 <form action="{{ url('/alumno/'.$alumno->id) }}" method="post">
                 @csrf
