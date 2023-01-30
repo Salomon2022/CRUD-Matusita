@@ -71,10 +71,11 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit($id)
     {
         //
-        return view('alumno.edit');
+        $gatito=Alumno::findOrFail($id);
+        return view('alumno.edit', compact('gatito'));
     }
 
     /**
