@@ -70,7 +70,7 @@ class AlumnoController extends Controller
      *
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
-     */
+     *///*recuperar datos de formulario edit. Trabajamos con variable 'gatito'
     public function edit($id)
     {
         //
