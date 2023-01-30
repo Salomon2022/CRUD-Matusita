@@ -15,7 +15,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //*Consultar datos en DB variable"alumnos" usado index en el @foreach"
-        $datos['gatitos']=Alumno::paginate(20);
+        $datos['gatito']=Alumno::paginate(20);
         return view('alumno.index',$datos );
     }
 
@@ -85,9 +85,18 @@ class AlumnoController extends Controller
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    //public function update(Request $request, Alumno $alumno) cambiamos por id
+
+    public function update(Request $request, $id)
     {
         //
+       
+        $datosAlumno = request()->except(['_token','_method']);
+        Alumno::where('id','=',$id)->update($datosAlumno);
+
+        $gatito=Alumno::findOrFail($id);
+        return view('alumno.edit', compact('gatito'));
+
     }
 
     /**
@@ -100,7 +109,7 @@ class AlumnoController extends Controller
     {
         //método usado para borrar registros almacenado en base datos
         Alumno::destroy($id);
-        return redirect('alumno');
+        return redirect('gatito');
 
     }
 }
