@@ -8,7 +8,7 @@ Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
             <th>Nombre</th>
             <th>ApellidoPaterno</th>
             <th>ApellidoMaterno</th>
-            <th>GradoSeccion</th>
+            <th>Grado_Seccion</th>
             <th>Correo</th>
             <th>Acciones</th>
         </tr>
@@ -18,11 +18,16 @@ Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
         @foreach($alumnado as $alumno )
         <tr>
             <td>{{ $alumno->id }}</td>
-            <td>{{ $alumno->Foto }}</td>
+
+            <td>
+              <img src="{{ asset('storage').'/' }}" alt="">
+            </td>
+
+
             <td>{{ $alumno->Nombre }}</td>
             <td>{{ $alumno->ApellidoPaterno }}</td>
             <td>{{ $alumno->ApellidoMaterno }}</td>
-            <td>{{ $alumno->GradoSeccion }}</td>
+            <td>{{ $alumno->Grado_Seccion }}</td>
             <td>{{ $alumno->Correo }}</td>
             <td>
                 

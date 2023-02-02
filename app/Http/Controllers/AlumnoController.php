@@ -89,7 +89,7 @@ class AlumnoController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        //TOMO DATOS VUELVP CON DATOS ACTUALIZADOS
         $datosAlumno = request()->except(['_token','_method']);
         Alumno::where('id','=',$id)->update($datosAlumno);
 //Copiar y pegar de la línea #77
