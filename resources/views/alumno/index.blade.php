@@ -15,7 +15,7 @@ Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
     </thead>
 
     <tbody>
-        @foreach( $gatitos as $alumno )
+        @foreach($Alumnos as $alumno )
         <tr>
             <td>{{ $alumno->id }}</td>
             <td>{{ $alumno->Foto }}</td>

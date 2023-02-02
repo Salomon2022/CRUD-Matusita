@@ -1,6 +1,6 @@
 Formulario edicion de Alumno
 
-<form action="{{'/alumno'.$gatito->id}}" method="post">
+<form action="{{'/alumno'.$alumno->id}}" method="post">
     @csrf
     {{method_field('PATCH')}}
     @include('alumno.form');
