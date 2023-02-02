@@ -75,7 +75,7 @@ class AlumnoController extends Controller
     {
         //
         $alumno=Alumno::findOrFail($id);
-        return view('alumno.edit', compact('alumno'));
+        return view('alumno.edit', compact('alumno') );
     }
 
     /**
@@ -91,10 +91,10 @@ class AlumnoController extends Controller
     {
         //
         $datosAlumno = request()->except(['_token','_method']);
-        Alumno::where('id','=',$id)->update('datosAlumno');
-
-        $datosAlumno =Alumno::findOrFail($id);
-        return view('alumno.edit', compact('datosAlumno'));
+        Alumno::where('id','=',$id)->update($datosAlumno);
+//Copiar y pegar de la línea #77
+        $alumno=Alumno::findOrFail($id);
+        return view('alumno.edit', compact('alumno') );
 
     }
 
