@@ -15,7 +15,7 @@ class AlumnoController extends Controller
     public function index()
     {
         //*Consultar datos en DB variable"alumnos" usado index en el @foreach"
-        $datos['Alumnos']=Alumno::paginate(20);
+        $datos['alumnado']=Alumno::paginate(10);
         return view('alumno.index',$datos );
     }
 
@@ -70,7 +70,7 @@ class AlumnoController extends Controller
      *
      * @param  \App\Models\Alumno  $alumno
      * @return \Illuminate\Http\Response
-     *///*recuperar datos de formulario edit. Trabajamos con variable 'gatito'
+     *///*recuperar datos de formulario edit. Trabajamos con variable 'alumnado'
     public function edit($id)
     {
         //
@@ -90,12 +90,11 @@ class AlumnoController extends Controller
     public function update(Request $request, $id)
     {
         //
-       
         $datosAlumno = request()->except(['_token','_method']);
-        Alumno::where('id','=',$id)->update($datosAlumno);
+        Alumno::where('id','=',$id)->update('datosAlumno');
 
-        $alumno=Alumno::findOrFail($id);
-        return view('alumno.edit', compact('alumno'));
+        $datosAlumno =Alumno::findOrFail($id);
+        return view('alumno.edit', compact('datosAlumno'));
 
     }
 

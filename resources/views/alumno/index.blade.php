@@ -15,7 +15,7 @@ Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
     </thead>
 
     <tbody>
-        @foreach($Alumnos as $alumno )
+        @foreach($alumnado as $alumno )
         <tr>
             <td>{{ $alumno->id }}</td>
             <td>{{ $alumno->Foto }}</td>
@@ -26,7 +26,7 @@ Mostrar lista de alumnos :) MATUSITA by Salomon Rengifo
             <td>{{ $alumno->Correo }}</td>
             <td>
                 
-                <a href="{{url('/alumno/'.$alumno->id.'/edit') }}">
+                <a href="{{ url('/alumno/'.$alumno->id.'/edit') }}">
                     EDITAR
                 </a>
 
